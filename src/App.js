@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
-
-import './App.css';
+import Burger from './compononts/Burger/Burger.js'
+import BreadTop from './compononts/BreadTop/BreadTop.js'
+import Salad from './compononts/Salad/Salad.js'
+import Cheese from './compononts/Cheese/Cheese.js'
+import Meat from './compononts/Meat/Meat.js'
+import BreadButton from './compononts/BreadButton/BreadButton.js'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-
+      <div className="container">
+          <Burger>
+              <BreadTop/>
+              <Salad/>
+              <Cheese/>
+              <Meat/>
+              <BreadButton/>
+          </Burger>
       </div>
     );
   }
