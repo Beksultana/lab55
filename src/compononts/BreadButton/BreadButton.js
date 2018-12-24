@@ -1,8 +1,9 @@
 import React from 'react'
 
-const BreadButton = props => (
-    <div className="BreadButton">
+const Cheese = props => (
+    <div className="Meat">
 
     </div>
 );
-export default BreadButton
+
+export default Cheese
