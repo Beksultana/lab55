@@ -6,8 +6,17 @@ import Cheese from './compononts/Cheese/Cheese.js'
 import Meat from './compononts/Meat/Meat.js'
 import BreadButton from './compononts/BreadButton/BreadButton.js'
 
+
 class App extends Component {
-  render() {
+    state = {
+        ingredients: [
+            {name: 'Meat', count: 1}
+        ]
+    };
+
+
+
+    render() {
     return (
       <div className="container">
           <Burger>
