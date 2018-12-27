@@ -1,67 +1,60 @@
 import React, { Component } from 'react';
 import Burger from './compononts/Burger/Burger.js';
 import BreadTop from './compononts/BreadTop/BreadTop.js';
-import Fiell from './compononts/Fiell/Fiell.js';
+import Fill from './compononts/Fill/Fill.js';
 import BreadButton from './compononts/BreadButton/BreadButton.js';
 import Buttons from './compononts/infoBlockIngr/InfoIngr.js';
 
 
+
 class App extends Component {
     state = {
-        counter: 0,
         ingredients: [
-            {name: 'Salad', count: 0},
-            {name: 'Cheese', count: 0},
-            {name: 'Meat', count: 0},
-            {name: 'Bacon', count: 0},
-        ]
+            {name: 'Salad', count: 0, price: 5},
+            {name: 'Cheese', count: 0, price: 20},
+            {name: 'Meat', count: 0, price: 50},
+            {name: 'Bacon', count: 0, price: 30},
+        ],
+        countBread: 20,
+        getTotalPrice: 0
     };
 
     showIngr = (ingr, count) => {
         let arr = [];
-        console.log(arr);
-
         for (let i = 0; i < count; i++){
-            if (ingr === "Salad"){
-                arr.push(<Fiell name={ingr} key={i}/>)
-            };
-            if (ingr === "Cheese"){
-                arr.push(<Fiell name={ingr} key={i}/>)
-            };
-            if (ingr === "Meat"){
-                arr.push(<Fiell name={ingr} key={i}/>)
-            };
-            if (ingr === "Bacon"){
-                arr.push(<Fiell name={ingr} key={i}/>)
-            };
-        };
-
+            arr.push(<Fill name={ingr} key={ingr + i}/>);
+        }
         return arr;
     };
 
     onClickAdd = (ingr) => {
-        const ingredients = [...this.state.ingredients]
+        const ingredients = [...this.state.ingredients];
         for (var i = 0; i < ingredients.length; i++){
             if (ingredients[i].name === ingr){
                 ingredients[i].count++;
             }
         }
-        this.setState({ingredients})
+        this.setState({ingredients});
     };
 
     onClickRemove = (ingr) => {
         const ingredients = [...this.state.ingredients];
         for (var i = 0; i < ingredients.length; i++){
             if (ingredients[i].name === ingr){
-                ingredients[i].count--
+                ingredients[i].count--;
+
+                if (ingredients[i].count < 0)
+                    ingredients[i].count = 0
             }
         }
-        this.setState({ingredients})
+        this.setState({ingredients});
+
     };
 
-    render() {
 
-    return (
+
+    render() {
+        return (
 
       <div className="container">
           <div className="mainIngrBlock">
@@ -71,6 +64,7 @@ class App extends Component {
                           <Buttons
                               key={index}
                               nameAdd={'Add'}
+                              cunterOfIngr={'x' + ingr.count}
                               nameRemove={'Remove'}
                               ingrName={ingr.name}
                               add={this.onClickAdd.bind(this, ingr.name)}
@@ -81,14 +75,13 @@ class App extends Component {
               </div>
 
               <div className="ingrBlockTwo">
-                  <Burger>
+                  <Burger price={'Price: ' + this.state.countBread + 'c'}>
                       <BreadTop/>
                       {
                           this.state.ingredients.map((ingr, index) => (
                               this.showIngr(this.state.ingredients[index].name ,
                                   this.state.ingredients[index].count)
                           ))
-
                       }
                       <BreadButton/>
                   </Burger>

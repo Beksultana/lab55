@@ -15,9 +15,10 @@ body {
 
 }
 .TitleNameIngr{
+    font-weight: bold;
     width: 0;
     margin: 2px;
-    font-Size: 25px;
+    font-Size: 20px;
 }
 .mainIngrBlock{
     display: flex;
@@ -27,7 +28,6 @@ body {
 }
 .infoIngr{
     margin: 20px 0;
-    height: 40px;
     display: flex;
     justify-content: space-around;
     width: 100%;
@@ -44,6 +44,7 @@ body {
     height: auto;
 }
 .btn {
+    border-radius: 5px;
     margin: 3px;
     padding: 10px 15px;
 }
@@ -64,7 +65,7 @@ body {
   background: linear-gradient(#F08E4A, #e27b36);
   border-radius: 0 0 30px 30px;
   box-shadow: inset -15px 0 #c15711;
-  margin: 2% auto;
+  margin: 1% auto;
 }
 
 .BreadTop {
@@ -73,7 +74,7 @@ body {
   background: linear-gradient(#bc581e, #e27b36);
   border-radius: 50% 50% 0 0;
   box-shadow: inset -15px 0 #c15711;
-  margin: 2% auto;
+  margin: 1% auto;
   position: relative;
 }
 
@@ -144,14 +145,14 @@ body {
   width: 80%;
   height: 8%;
   background: linear-gradient(#7f3608, #702e05);
-  margin: 2% auto;
+  margin: 1% auto;
   border-radius: 15px;
 }
 
 .Cheese {
   width: 90%;
   height: 4.5%;
-  margin: 2% auto;
+  margin: 1% auto;
   background: linear-gradient(#f4d004, #d6bb22);
   border-radius: 20px;
 }
@@ -159,16 +160,17 @@ body {
 .Salad {
   width: 85%;
   height: 7%;
-  margin: 2% auto;
+  margin: 1% auto;
   background: linear-gradient(#228c1d, #91ce50);
   border-radius: 20px;
 }
 
 .Bacon {
   width: 80%;
-  height: 7%;
+  height: 8%;
   background: linear-gradient(#bf3813, #c45e38);
-  margin: 2% auto;
+  margin: 1% auto;
+    border-radius: 20px;
 }
 
 .Burger {
