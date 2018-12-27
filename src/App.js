@@ -1,44 +1,38 @@
 import React, { Component } from 'react';
 import Burger from './compononts/Burger/Burger.js';
 import BreadTop from './compononts/BreadTop/BreadTop.js';
-import Salad from './compononts/Salad/Salad.js';
-import Cheese from './compononts/Cheese/Cheese.js';
-import Meat from './compononts/Meat/Meat.js';
-import Bacon from './compononts/Bacon/Bacon.js'
+import Fiell from './compononts/Fiell/Fiell.js';
 import BreadButton from './compononts/BreadButton/BreadButton.js';
 import Buttons from './compononts/infoBlockIngr/InfoIngr.js';
 
 
 class App extends Component {
     state = {
+        counter: 0,
         ingredients: [
-            {name: 'Salad', count: 1},
-            {name: 'Cheese', count: 1},
-            {name: 'Meat', count: 1},
-            {name: 'Bacon', count: 1},
+            {name: 'Salad', count: 0},
+            {name: 'Cheese', count: 0},
+            {name: 'Meat', count: 0},
+            {name: 'Bacon', count: 0},
         ]
     };
 
     showIngr = (ingr, count) => {
         let arr = [];
+        console.log(arr);
+
         for (let i = 0; i < count; i++){
             if (ingr === "Salad"){
-                arr.push(<Salad key={i}/>)
+                arr.push(<Fiell name={ingr} key={i}/>)
             };
-        };
-        for (let i = 0; i < count; i++){
             if (ingr === "Cheese"){
-                arr.push(<Cheese key={i}/>)
+                arr.push(<Fiell name={ingr} key={i}/>)
             };
-        };
-        for (let i = 0; i < count; i++){
             if (ingr === "Meat"){
-                arr.push(<Meat key={i}/>)
+                arr.push(<Fiell name={ingr} key={i}/>)
             };
-        };
-        for (let i = 0; i < count; i++){
             if (ingr === "Bacon"){
-                arr.push(<Bacon key={i}/>)
+                arr.push(<Fiell name={ingr} key={i}/>)
             };
         };
 
