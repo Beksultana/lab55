@@ -16,7 +16,6 @@ class App extends Component {
             {name: 'Bacon', count: 0, price: 30},
         ],
         countBread: 20,
-        getTotalPrice: 0
     };
 
     showIngr = (ingr, count) => {
@@ -35,6 +34,8 @@ class App extends Component {
             }
         }
         this.setState({ingredients});
+        this.addGetTotalPrice();
+
     };
 
     onClickRemove = (ingr) => {
@@ -47,13 +48,25 @@ class App extends Component {
                     ingredients[i].count = 0
             }
         }
-        this.setState({ingredients});
 
+        this.setState({ingredients});
+        this.addGetTotalPrice();
     };
 
+    addGetTotalPrice = () => {
+        let countBread = 20;
 
+        for (let i =0; i < this.state.ingredients.length; i++){
+            if (this.state.ingredients[i].name){
+               let getPrice = this.state.ingredients[i].count * this.state.ingredients[i].price;
+                countBread += getPrice
+            }
+        }
+        this.setState({countBread})
+    };
 
     render() {
+
         return (
 
       <div className="container">
@@ -75,7 +88,7 @@ class App extends Component {
               </div>
 
               <div className="ingrBlockTwo">
-                  <Burger price={'Price: ' + this.state.countBread + 'c'}>
+                  <Burger price={'Price: ' + this.state.countBread +  ' c'}>
                       <BreadTop/>
                       {
                           this.state.ingredients.map((ingr, index) => (
